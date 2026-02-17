@@ -51,8 +51,9 @@ describe('TransactionList', () => {
       />
     );
 
-    expect(screen.getByText('$100.00')).toBeInTheDocument();
-    expect(screen.getByText('$3,000.00')).toBeInTheDocument();
+    // Amounts are displayed with +/- sign based on transaction type
+    expect(screen.getByText('-$100.00')).toBeInTheDocument();
+    expect(screen.getByText('+$3,000.00')).toBeInTheDocument();
   });
 
   it('calls onDelete when delete button is clicked', async () => {

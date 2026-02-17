@@ -90,4 +90,5 @@ def health_check():
 if __name__ == "__main__":
     import uvicorn
     logger.info("Starting Finance Manager API server...")
+    # nosec B104: Binding to all interfaces is intentional for Docker containerization
     uvicorn.run(app, host="0.0.0.0", port=8000)

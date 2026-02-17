@@ -297,7 +297,7 @@ jobs:
 
     - name: Build and start services
       run: |
-        docker-compose up -d --build
+        docker compose up -d --build
         sleep 15
 
     - name: Test backend health
@@ -310,8 +310,8 @@ jobs:
 
     - name: Run backend tests in container
       run: |
-        docker-compose exec -T backend python -m pytest tests/ -v
+        docker compose exec -T backend python -m pytest tests/ -v
 
     - name: Cleanup
       if: always()
-      run: docker-compose down -v
+      run: docker compose down -v
